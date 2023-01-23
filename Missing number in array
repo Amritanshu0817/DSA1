@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+
+
+// } Driver Code Ends
+// User function template for C++
+
+class Solution{
+  public:
+    int MissingNumber(vector<int>& array, int n) {
+        // Your code goes here
+        int i=1;
+        int sumn = 0;
+        int sumn1 = 0;
+        for(; i<=n; i++){
+           sumn = sumn + i;
+        }
+        for (int j=0; j<n-1; j++){
+            sumn1 = sumn1 + array[j];
+        }
+        
+        return(sumn - sumn1);
+    }
+};
+
+//{ Driver Code Starts.
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+
+        vector<int> array(n - 1);
+        for (int i = 0; i < n - 1; ++i) cin >> array[i];
+        Solution obj;
+        cout << obj.MissingNumber(array, n) << "\n";
+    }
+    return 0;
+}
