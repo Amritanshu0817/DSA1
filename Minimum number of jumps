@@ -1,0 +1,32 @@
+class Solution{
+  public:
+    int minJumps(int arr[], int n){
+        // Your code here
+        int i=0, jumps=0;
+        int check = arr[0];
+            if(check == arr[n-1]){
+                return jumps;
+            }
+            if(check == 0){
+                return -1;
+            }
+            if(check < n){
+                i += check;
+                check = arr[i];
+                if(check == 0){
+                    return -1;
+                }
+                jumps++;
+            }
+            if(check >= n){
+                jumps++;
+            }
+            minJumps(arr, n);
+            
+        return jumps;
+
+        
+    }
+};
+
+// GFG link :- https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1?page=1&sortBy=submissions
